@@ -28,7 +28,6 @@ function renderApp() {
   const isSignedIn = clerk.user !== null;
 
   let clerkSection = ''
-  let title = 'Vite + TypeScript + Clerk'
 
   if (isSignedIn) {
     const user = clerk.user!
@@ -37,10 +36,11 @@ function renderApp() {
     const userImage = user.imageUrl || ''
     const fullName = `${user.firstName || ''} ${user.lastName || ''}`.trim() || 'User'
 
-    title = `Welcome, ${fullName}!`
+    const title = `Welcome, ${fullName}!`
 
     clerkSection = `
       ${userImage ? `<img src="${userImage}" alt="Profile" style="width: 80px; height: 80px; border-radius: 50%; margin: 10px;" />` : ''}
+      <h1>${title}</h1>
       <div class="card">
         <p><strong>Account Information</strong></p>
         <p>Email: ${user.emailAddresses[0]?.emailAddress || 'N/A'}</p>
@@ -71,27 +71,9 @@ function renderApp() {
 
   app.innerHTML = `
     <div>
-      <a href="https://vite.dev" target="_blank">
-        <img src="${viteLogo}" class="logo" alt="Vite logo" />
-      </a>
-      <a href="https://www.typescriptlang.org/" target="_blank">
-        <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-      </a>
-      <a href="https://clerk.com" target="_blank">
-        <img src="${clerkLogo}" class="logo" alt="Clerk logo" />
-      </a>
-      <h1>${title}</h1>
       ${clerkSection}
-      <div class="card">
-        <button id="counter" type="button"></button>
-      </div>
-      <p class="read-the-docs">
-        Click on the logos to learn more
-      </p>
     </div>
   `
-
-  setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
 
   if (isSignedIn) {
     document.getElementById('user-profile-btn')?.addEventListener('click', () => {
