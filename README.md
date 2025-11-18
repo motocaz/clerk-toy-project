@@ -1,4 +1,4 @@
-# Clerk JavaScript Toy Project
+# Clerk Typescript Toy Project
 
 A simple toy project demonstrating Clerk authentication functionality built with Vite, TypeScript, and Clerk.js.
 
@@ -23,7 +23,7 @@ A simple toy project demonstrating Clerk authentication functionality built with
 
 ```bash
 git clone <your-repo-url>
-cd clerk-javascript
+cd clerk-toy-project
 ```
 
 ### 2. Install dependencies
@@ -53,7 +53,7 @@ The application will be available at `http://localhost:5173` (or the port Vite a
 ## 📦 Project Structure
 
 ```
-clerk-javascript/
+clerk-toy-project/
 ├── public/
 │   ├── clerk.svg          # Clerk logo
 │   └── vite.svg            # Vite logo
